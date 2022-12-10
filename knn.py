@@ -156,16 +156,19 @@ knn_gs_best.best_params_
 ################################################
 
 knn_final = knn_model.set_params(**knn_gs_best.best_params_).fit(X, y)
-
+#                                 burada iki yıldız sebebi;
+#                               key value değerlerini yazmamız gerek bu direkt ata dedi
+#burada bir tane varken yazılabilirdi ama belki ileride onlarca olan bi modelimiz olucak
 cv_results = cross_validate(knn_final,
                             X,
                             y,
                             cv=5,
                             scoring=["accuracy", "f1", "roc_auc"])
 
-cv_results['test_accuracy'].mean()
-cv_results['test_f1'].mean()
-cv_results['test_roc_auc'].mean()
+cv_results['test_accuracy'].mean() #0.76
+cv_results['test_f1'].mean() #0.61
+cv_results['test_roc_auc'].mean() #0.81
+#skorlar artmışşş good
 
 random_user = X.sample(1)
 
