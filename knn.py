@@ -142,13 +142,14 @@ knn_model.get_params()
 
 knn_params = {"n_neighbors": range(2, 50)}
 
-knn_gs_best = GridSearchCV(knn_model,
-                           knn_params,
-                           cv=5,
-                           n_jobs=-1,
-                           verbose=1).fit(X, y)
-
+knn_gs_best = GridSearchCV(knn_model, #modelimizi verdik
+                           knn_params, #değişkeni verdik
+                           cv=5, #cross validation yapıyoz yine
+                           n_jobs=-1, #işlemci performansını yüksek tutmak için
+                           verbose=1).fit(X, y) #verbose rapor vercek bize
+#bu grid ızgara kardeş her değişken için knn model kurup bakıcak tek tek
 knn_gs_best.best_params_
+#yukarıdaki kodla en iyi komşuluk hiperparametremizi bulduk kod 17 dedi
 
 ################################################
 # 6. Final Model
